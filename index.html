@@ -270,33 +270,112 @@
       font-weight: 600;
     }
 
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    /* ─── STATS STRIP ─────────────────────────────────── */
+    #stats { padding: 0 24px 72px; }
 
-    .stat-card {
-      background: var(--card-bg);
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px 20px;
-      text-align: center;
+      overflow: hidden;
     }
 
-    .stat-card .stat-num {
-      font-size: 2.2rem;
+    .stat-item {
+      background: var(--navy-mid);
+      padding: 28px 20px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .stat-item:hover { background: var(--navy-light); }
+
+    .stat-item .stat-num {
+      font-size: 2rem;
       font-weight: 900;
       color: var(--accent);
       line-height: 1;
       margin-bottom: 6px;
+      letter-spacing: -0.02em;
     }
 
-    .stat-card .stat-label {
-      font-size: 0.8rem;
+    .stat-item .stat-label {
+      font-size: 0.78rem;
       color: var(--text-muted);
       line-height: 1.4;
     }
+
+    /* ─── MISSED CALLS CARD ────────────────────────────── */
+    .missed-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .missed-card-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .voicemail-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+
+    .voicemail-row:last-child { border-bottom: none; }
+    .voicemail-row:hover { background: rgba(255,255,255,0.02); }
+
+    .vm-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+    }
+
+    .vm-text { flex: 1; min-width: 0; }
+
+    .vm-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vm-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .vm-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .vm-badge.lost    { background: rgba(239,68,68,0.15);  color: #F87171; border: 1px solid rgba(239,68,68,0.2); }
+    .vm-badge.unknown { background: rgba(234,179,8,0.12);  color: #FCD34D; border: 1px solid rgba(234,179,8,0.2); }
 
     /* ─── HOW IT WORKS ────────────────────────────────── */
     #how { text-align: center; }
@@ -318,15 +397,7 @@
       position: relative;
     }
 
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: calc(16.66% + 12px);
-      right: calc(16.66% + 12px);
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(46,123,255,0.3) 50%, var(--accent) 100%);
-    }
+    .steps::before { display: none; }
 
     .step-card {
       background: var(--card-bg);
@@ -403,7 +474,7 @@
 
     .calc-inputs {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-bottom: 40px;
     }
@@ -631,6 +702,95 @@
       color: var(--text-muted);
     }
 
+    /* ─── PRICING TOGGLE ──────────────────────────────── */
+    .pricing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .toggle-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color 0.2s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-label.active { color: var(--text); }
+
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      cursor: pointer;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .toggle-track {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .toggle-switch input:checked ~ .toggle-track {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    .toggle-switch input:checked ~ .toggle-thumb {
+      transform: translateX(22px);
+    }
+
+    .annual-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(46,123,255,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(46,123,255,0.3);
+      padding: 3px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      min-height: 1.2em;
+      transition: opacity 0.2s;
+    }
+
+    .price-amount {
+      transition: opacity 0.15s;
+    }
+
     /* ─── MODAL ───────────────────────────────────────── */
     .modal-overlay {
       display: none;
@@ -651,10 +811,13 @@
       background: var(--navy-mid);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 48px 40px 40px;
       width: 100%;
       max-width: 520px;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-height: 92svh;
+      max-height: 92vh;
+      overflow: hidden;
       animation: modalIn 0.22s ease;
     }
 
@@ -663,12 +826,31 @@
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 32px 0;
+      flex-shrink: 0;
+    }
+
+    .modal-header h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .modal-sub {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
     .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
       width: 32px;
       height: 32px;
+      flex-shrink: 0;
       border-radius: 8px;
       border: none;
       background: rgba(255,255,255,0.06);
@@ -679,6 +861,7 @@
       align-items: center;
       justify-content: center;
       transition: background 0.15s, color 0.15s;
+      margin-top: 2px;
     }
 
     .modal-close:hover {
@@ -686,16 +869,10 @@
       color: var(--text);
     }
 
-    .modal h3 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .modal-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
+    .modal-body {
+      overflow-y: auto;
+      padding: 20px 32px 32px;
+      flex: 1;
     }
 
     .form-row {
@@ -833,6 +1010,24 @@
 
     .footer-sep { color: var(--border); }
 
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+
+    .footer-social a:hover {
+      color: #fff;
+      border-color: #1877F2;
+      background: #1877F2;
+    }
+
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
       section { padding: 72px 20px; }
@@ -840,7 +1035,6 @@
       .problem-inner { grid-template-columns: 1fr; gap: 40px; }
 
       .steps { grid-template-columns: 1fr; gap: 16px; }
-      .steps::before { display: none; }
 
       .step-card {
         display: grid;
@@ -866,13 +1060,15 @@
 
       .footer-inner { flex-direction: column; align-items: flex-start; }
 
-      .modal { padding: 40px 24px 32px; }
+      .modal-header { padding: 20px 20px 0; }
+      .modal-body { padding: 16px 20px 24px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
     }
 
     @media (max-width: 600px) {
       #hero { padding: 80px 20px 72px; }
-      .stat-grid { grid-template-columns: 1fr 1fr; }
+      #stats { padding: 0 20px 56px; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
       .nav-inner { padding: 0 16px; }
     }
   </style>
@@ -906,6 +1102,30 @@
     </div>
   </section>
 
+  <!-- STATS STRIP -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-strip">
+        <div class="stat-item">
+          <div class="stat-num">85%</div>
+          <div class="stat-label">of voicemail callers never call back</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">calls answered, nights and weekends included</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;1s</div>
+          <div class="stat-label">average pickup time on every call</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">of leads captured with full details</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROBLEM -->
   <section id="problem">
     <div class="container">
@@ -916,22 +1136,31 @@
           <p>You're a contractor, not a receptionist. When you're on a job site, under a sink, or working after hours, calls go to voicemail. <strong>Customers don't leave messages — they call the next contractor on the list.</strong></p>
           <p>TavaTrack makes sure that never happens again.</p>
         </div>
-        <div class="stat-grid">
-          <div class="stat-card">
-            <div class="stat-num">85%</div>
-            <div class="stat-label">of callers who reach voicemail don't call back</div>
+        <div class="missed-card">
+          <div class="missed-card-header">Without TavaTrack</div>
+          <div class="voicemail-row">
+            <div class="vm-icon">📵</div>
+            <div class="vm-text">
+              <div class="vm-name">Mike R. — Burst pipe emergency</div>
+              <div class="vm-sub">Called at 7:14 PM · Went to voicemail</div>
+            </div>
+            <div class="vm-badge lost">Lost</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-num">24/7</div>
-            <div class="stat-label">calls answered, including nights and weekends</div>
+          <div class="voicemail-row">
+            <div class="vm-icon">📵</div>
+            <div class="vm-text">
+              <div class="vm-name">Sarah T. — HVAC install quote</div>
+              <div class="vm-sub">Called at 8:02 AM · No answer</div>
+            </div>
+            <div class="vm-badge lost">Lost</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-num">&lt;1s</div>
-            <div class="stat-label">average pickup time — every single call</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">of leads captured with name, number, and job details</div>
+          <div class="voicemail-row">
+            <div class="vm-icon">📵</div>
+            <div class="vm-text">
+              <div class="vm-name">Dave K. — Electrical panel upgrade</div>
+              <div class="vm-sub">Called at 12:45 PM · Left no message</div>
+            </div>
+            <div class="vm-badge unknown">Unknown</div>
           </div>
         </div>
       </div>
@@ -995,13 +1224,6 @@
               <input type="number" id="missedCalls" placeholder="5" min="0" />
             </div>
           </div>
-          <div class="calc-field">
-            <label>Close Rate on Callbacks</label>
-            <div class="input-wrap has-suffix">
-              <input type="number" id="closeRate" placeholder="40" min="0" max="100" />
-              <span class="input-suffix">%</span>
-            </div>
-          </div>
         </div>
         <div class="calc-output">
           <div class="output-card">
@@ -1030,11 +1252,27 @@
         <h2>Simple, transparent pricing</h2>
         <p>No hidden fees. No per-minute charges. One flat monthly rate.</p>
       </div>
+      <!-- Toggle -->
+      <div class="pricing-toggle">
+        <span class="toggle-label active" id="labelMonthly">Monthly</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="billingToggle" />
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+        <span class="toggle-label" id="labelAnnual">Annual</span>
+        <span class="annual-badge">Save 2 months</span>
+      </div>
+
       <div class="pricing-grid">
 
-        <div class="price-card">
+        <div class="price-card"
+          data-monthly="$297" data-monthly-suffix="/mo"
+          data-annual="$248" data-annual-suffix="/mo"
+          data-annual-note="$2,970 billed annually — save $594">
           <div class="price-tier">Starter</div>
           <div class="price-amount">$297<span>/mo</span></div>
+          <p class="price-note"></p>
           <p class="price-desc">AI receptionist that answers every call, captures every lead, and texts you instantly. Perfect for solo operators who never want to miss a call again.</p>
           <ul class="price-features">
             <li>24/7 AI call answering</li>
@@ -1046,10 +1284,14 @@
           <button class="btn btn-outline" onclick="openModal('Starter')">Get Started</button>
         </div>
 
-        <div class="price-card featured">
+        <div class="price-card featured"
+          data-monthly="$497" data-monthly-suffix="/mo"
+          data-annual="$414" data-annual-suffix="/mo"
+          data-annual-note="$4,970 billed annually — save $994">
           <div class="featured-badge">Most Popular</div>
           <div class="price-tier">Professional</div>
           <div class="price-amount">$497<span>/mo</span></div>
+          <p class="price-note"></p>
           <p class="price-desc">Everything in Starter plus direct calendar booking — the AI confirms appointments before hanging up. Includes Google Calendar sync and CRM integration.</p>
           <ul class="price-features">
             <li>Everything in Starter</li>
@@ -1061,9 +1303,13 @@
           <button class="btn btn-primary" onclick="openModal('Professional')">Get Started</button>
         </div>
 
-        <div class="price-card">
+        <div class="price-card"
+          data-monthly="$797" data-monthly-suffix="/mo"
+          data-annual="$664" data-annual-suffix="/mo"
+          data-annual-note="$7,970 billed annually — save $1,594">
           <div class="price-tier">Business</div>
           <div class="price-amount">$797<span>/mo</span></div>
+          <p class="price-note"></p>
           <p class="price-desc">Everything in Professional plus multi-location support, advanced lead scoring, and a dedicated support channel. For established contractors running a serious operation.</p>
           <ul class="price-features">
             <li>Everything in Professional</li>
@@ -1072,7 +1318,7 @@
             <li>Dedicated support channel</li>
             <li>Custom AI training</li>
           </ul>
-          <button class="btn btn-outline" onclick="openModal('Business')">Contact Us</button>
+          <button class="btn btn-outline" onclick="openModal('Business')">Get Started</button>
         </div>
 
       </div>
@@ -1091,22 +1337,33 @@
         <span class="footer-sep">·</span>
         <a onclick="openModal()">Contact Us</a>
       </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/profile.php?id=61583689701950" target="_blank" rel="noopener" aria-label="TavaTrack on Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 
   <!-- CONTACT MODAL -->
   <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+
+      <div class="modal-header">
+        <div>
+          <h3 id="modalTitle">Let's get you set up</h3>
+          <p class="modal-sub">Fill out the form and we'll be in touch within one business day.</p>
+        </div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+      </div>
 
       <!-- Form -->
       <div id="modalForm">
-        <h3 id="modalTitle">Let's get you set up</h3>
-        <p class="modal-sub">Fill out the form below and we'll be in touch within one business day.</p>
-
+        <div class="modal-body">
         <form name="contact" netlify netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
           <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="plan" id="planField" value="" />
           <p style="display:none"><input name="bot-field" /></p>
 
           <div class="form-row">
@@ -1128,6 +1385,17 @@
           <div class="form-field">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+          </div>
+
+          <div class="form-field">
+            <label for="planSelect">Plan You're Interested In</label>
+            <select id="planSelect" name="plan" required>
+              <option value="" disabled selected>Select a plan...</option>
+              <option value="Starter">Starter — $297/mo</option>
+              <option value="Professional">Professional — $497/mo</option>
+              <option value="Business">Business — $797/mo</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
           </div>
 
           <div class="form-field">
@@ -1153,53 +1421,50 @@
 
           <button type="submit" class="btn btn-primary form-submit">Send Message</button>
         </form>
+        </div>
       </div>
 
       <!-- Success state -->
       <div class="modal-success" id="modalSuccess">
+        <div class="modal-body" style="text-align:center; padding-top: 40px; padding-bottom: 40px;">
         <div class="success-icon">✓</div>
         <h3>We'll be in touch soon</h3>
         <p>Thanks for reaching out. We typically respond within one business day.</p>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
     // ── Calculator ──────────────────────────────────────
-    const jobValueEl  = document.getElementById('jobValue');
-    const missedEl    = document.getElementById('missedCalls');
-    const closeRateEl = document.getElementById('closeRate');
-    const outMonth    = document.getElementById('outMonth');
-    const outYear     = document.getElementById('outYear');
-    const outPayback  = document.getElementById('outPayback');
+    const jobValueEl = document.getElementById('jobValue');
+    const missedEl   = document.getElementById('missedCalls');
+    const outMonth   = document.getElementById('outMonth');
+    const outYear    = document.getElementById('outYear');
+    const outPayback = document.getElementById('outPayback');
 
     function fmt(n) {
       return '$' + Math.round(n).toLocaleString('en-US');
     }
 
     function calculate() {
-      const jobVal = parseFloat(jobValueEl.value)  || 0;
-      const missed = parseFloat(missedEl.value)    || 0;
-      const rate   = parseFloat(closeRateEl.value) || 0;
+      const jobVal = parseFloat(jobValueEl.value) || 0;
+      const missed = parseFloat(missedEl.value)   || 0;
 
-      if (!jobVal || !missed || !rate) {
+      if (!jobVal || !missed) {
         outMonth.textContent   = '$—';
         outYear.textContent    = '$—';
         outPayback.textContent = 'enter your numbers above';
         return;
       }
 
-      const recoveredPerWeek  = missed * (rate / 100) * jobVal;
-      const recoveredPerMonth = recoveredPerWeek * 4;
+      const recoveredPerMonth = missed * jobVal * 4;
       const recoveredPerYear  = recoveredPerMonth * 12;
 
       outMonth.textContent = fmt(recoveredPerMonth);
       outYear.textContent  = fmt(recoveredPerYear);
 
-      const lowestPlan   = 297;
-      const valuePerCall = jobVal * (rate / 100);
-      const callsNeeded  = lowestPlan / valuePerCall;
-
+      const callsNeeded = 297 / jobVal;
       if (callsNeeded <= 1) {
         outPayback.textContent = '1 recovered call';
       } else {
@@ -1209,7 +1474,6 @@
 
     jobValueEl.addEventListener('input', calculate);
     missedEl.addEventListener('input', calculate);
-    closeRateEl.addEventListener('input', calculate);
 
     // ── Nav active tab ──────────────────────────────────
     const sections = ['problem', 'how', 'calculator', 'pricing'].map(id => document.getElementById(id));
@@ -1230,10 +1494,41 @@
     window.addEventListener('scroll', updateActiveTab, { passive: true });
     updateActiveTab();
 
+    // ── Pricing toggle ──────────────────────────────────
+    const billingToggle = document.getElementById('billingToggle');
+    const labelMonthly  = document.getElementById('labelMonthly');
+    const labelAnnual   = document.getElementById('labelAnnual');
+
+    billingToggle.addEventListener('change', () => {
+      const isAnnual = billingToggle.checked;
+
+      labelMonthly.classList.toggle('active', !isAnnual);
+      labelAnnual.classList.toggle('active',  isAnnual);
+
+      document.querySelectorAll('.price-card').forEach(card => {
+        const amountEl = card.querySelector('.price-amount');
+        const noteEl   = card.querySelector('.price-note');
+
+        amountEl.style.opacity = '0';
+
+        setTimeout(() => {
+          if (isAnnual) {
+            amountEl.innerHTML = card.dataset.annual + '<span>' + card.dataset.annualSuffix + '</span>';
+            noteEl.textContent  = card.dataset.annualNote;
+          } else {
+            amountEl.innerHTML = card.dataset.monthly + '<span>' + card.dataset.monthlySuffix + '</span>';
+            noteEl.textContent  = '';
+          }
+          amountEl.style.opacity = '1';
+        }, 150);
+      });
+    });
+
     // ── Modal ───────────────────────────────────────────
     function openModal(plan) {
-      document.getElementById('planField').value = plan || '';
-      document.getElementById('modalForm').style.display   = 'block';
+      const sel = document.getElementById('planSelect');
+      if (plan && sel) sel.value = plan;
+      document.getElementById('modalForm').style.display    = 'block';
       document.getElementById('modalSuccess').style.display = 'none';
       document.getElementById('modalOverlay').classList.add('open');
       document.body.style.overflow = 'hidden';
