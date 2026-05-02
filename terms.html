@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — TavaTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B1829;
+      --navy-mid:   #122035;
+      --navy-light: #1A2E47;
+      --accent:     #2E7BFF;
+      --text:       #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-soft:  #CBD5E1;
+      --border:     rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 24, 41, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    /* CONTENT */
+    .doc-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .doc-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .doc-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .doc-meta {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-intro {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 48px 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 8px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 12px 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .caps {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .sms-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.9rem;
+    }
+
+    .sms-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sms-table td {
+      padding: 12px 14px;
+      color: var(--text-soft);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .sms-table tr:last-child td { border-bottom: none; }
+
+    .contact-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 12px;
+    }
+
+    .contact-block p { margin-bottom: 4px; }
+    .contact-block p:last-child { margin-bottom: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+    .footer-sep { color: var(--border); }
+
+    @media (max-width: 600px) {
+      .doc-wrap { padding: 48px 20px 72px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .sms-table { font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Tava<span>Track</span></a>
+    </div>
+  </nav>
+
+  <div class="doc-wrap">
+    <span class="doc-label">Legal</span>
+    <h1 class="doc-title">Terms of Service</h1>
+    <p class="doc-meta">Effective Date: May 2, 2026 &nbsp;|&nbsp; Last Updated: May 2, 2026</p>
+
+    <p class="doc-intro">These Terms of Service ("Terms") constitute a legally binding agreement between you ("Contractor," "you," or "your") and Tavatrack LLC, a Wyoming limited liability company ("Tavatrack," "we," "us," or "our"). By signing up for, accessing, or using the Tavatrack platform (the "Service"), you agree to be bound by these Terms.</p>
+    <p class="doc-intro">If you do not agree to these Terms, do not use the Service.</p>
+
+    <h2>1. Description of Service</h2>
+    <p>Tavatrack is an AI-powered receptionist platform for trade contractors in the HVAC, plumbing, and electrical industries. The Service includes:</p>
+    <ul>
+      <li>A custom AI voice receptionist that answers inbound calls on your behalf</li>
+      <li>Automated lead capture including caller name, address, job type, and urgency</li>
+      <li>Instant SMS notifications delivered to the contractor upon call completion</li>
+      <li>A dashboard for reviewing leads, call transcripts, and AI-generated summaries</li>
+      <li>Appointment booking features (Professional and Business plans)</li>
+      <li>CRM integration support (Professional and Business plans)</li>
+    </ul>
+    <p>All onboarding is performed manually by Tavatrack staff. There is no self-serve signup. Service begins after successful completion of the onboarding process and verification of all system components.</p>
+
+    <h2>2. Eligibility and Account Registration</h2>
+    <p>You must be at least 18 years of age and have the legal authority to enter into contracts on behalf of your business. By registering, you represent that all information you provide is accurate and complete. You are responsible for maintaining the confidentiality of your account credentials.</p>
+
+    <h2>3. Subscription Plans and Fees</h2>
+
+    <h3>3.1 Plans and Pricing</h3>
+    <p>Tavatrack offers three subscription tiers, billed monthly:</p>
+    <ul>
+      <li>Starter — $297/month — includes 1,000 AI receptionist minutes</li>
+      <li>Professional — $497/month — includes 1,500 minutes, plus appointment scheduling</li>
+      <li>Business — $797/month — includes 2,500 minutes, plus CRM integrations</li>
+    </ul>
+
+    <h3>3.2 Setup Fees</h3>
+    <p>A one-time setup fee may apply: $199 (Starter), $299 (Professional), or $499 (Business). Setup fees cover personalized agent configuration and onboarding.</p>
+
+    <h3>3.3 Overage Fees</h3>
+    <p>Minutes used beyond your plan's included amount are billed at the overage rate: $0.15/min (Starter), $0.12/min (Professional), or $0.10/min (Business).</p>
+
+    <h3>3.4 Add-Ons</h3>
+    <p>Optional add-ons are available at the following monthly rates:</p>
+    <ul>
+      <li>Additional phone number — $75/month</li>
+      <li>Additional CRM integration — $75/month</li>
+      <li>Custom escalation rule — $49/month each</li>
+    </ul>
+
+    <h3>3.5 Annual Discount</h3>
+    <p>Contractors who pay annually receive the equivalent of two months free. Annual pricing is offered after an initial monthly subscription period at Tavatrack's discretion.</p>
+
+    <h3>3.6 Billing and Payment</h3>
+    <p>Fees are billed monthly in advance via Stripe. By providing a payment method, you authorize Tavatrack to charge your method on a recurring monthly basis. All fees are non-refundable except as expressly provided in these Terms or required by law.</p>
+
+    <h2>4. SMS Messaging Program</h2>
+
+    <h3>4.1 Program Description</h3>
+    <p>As part of the Tavatrack AI Receptionist Service, Tavatrack will send automated SMS text messages to the mobile number you provide. These messages include:</p>
+    <ul>
+      <li>Lead notifications when your AI receptionist captures a new caller inquiry</li>
+      <li>Appointment confirmations when a caller books a time slot</li>
+      <li>System alerts and service status updates</li>
+    </ul>
+
+    <h3>4.2 Message Frequency</h3>
+    <p>Message frequency varies. You will receive one SMS per captured call event. During high-volume periods (e.g., peak season), you may receive multiple messages per day.</p>
+
+    <h3>4.3 Message and Data Rates</h3>
+    <p>Message and data rates may apply. Contact your mobile carrier for details.</p>
+
+    <h3>4.4 Opt-Out</h3>
+    <p>You may opt out of SMS notifications at any time by replying STOP to any message. After opting out, you will receive a final confirmation message and no further SMS alerts will be sent. Opting out of SMS does not cancel your Tavatrack subscription. To re-enable SMS notifications, contact <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>.</p>
+
+    <h3>4.5 Help</h3>
+    <p>For help with the SMS program, reply HELP to any message or contact <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>. We will respond within one business day.</p>
+
+    <h3>4.6 Supported Carriers</h3>
+    <p>Tavatrack's SMS program is available on all major U.S. carriers. Support is not guaranteed for all MVNO carriers. Tavatrack is not responsible for undelivered messages due to carrier issues.</p>
+
+    <h3>SMS Quick Reference</h3>
+    <table class="sms-table">
+      <tr><th>Field</th><th>Details</th></tr>
+      <tr><td>Program Name</td><td>Tavatrack AI Receptionist Alerts</td></tr>
+      <tr><td>Message Frequency</td><td>1 message per captured call/lead. Varies by call volume.</td></tr>
+      <tr><td>Msg &amp; Data Rates</td><td>Standard message and data rates may apply.</td></tr>
+      <tr><td>To Opt Out</td><td>Reply STOP to any message.</td></tr>
+      <tr><td>For Help</td><td>Reply HELP or email <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>.</td></tr>
+    </table>
+
+    <h2>5. Acceptable Use</h2>
+    <p>You agree to use the Service only for lawful purposes in connection with your legitimate trade contracting business. You agree not to:</p>
+    <ul>
+      <li>Use the Service to mislead, deceive, or defraud your customers</li>
+      <li>Attempt to reverse-engineer, copy, or resell the Tavatrack platform</li>
+      <li>Use the Service in any way that violates applicable federal, state, or local law</li>
+      <li>Submit false information during onboarding or account registration</li>
+      <li>Use the Service for any purpose other than your trade contracting business</li>
+    </ul>
+
+    <h2>6. Cancellation and Termination</h2>
+
+    <h3>6.1 Cancellation by You</h3>
+    <p>There are no long-term contracts. You may cancel your subscription at any time by contacting Tavatrack at <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>. Cancellation takes effect at the end of the current billing period. You will retain access to the Service through the end of your paid period.</p>
+
+    <h3>6.2 Termination by Tavatrack</h3>
+    <p>Tavatrack reserves the right to suspend or terminate your account, without prior notice, if you violate these Terms, fail to pay fees when due, or engage in conduct that we reasonably determine is harmful to the Service or other users.</p>
+
+    <h3>6.3 Effect of Termination</h3>
+    <p>Upon termination, your AI receptionist will be deactivated and your Twilio phone number may be released. Call data and transcripts may be retained by Tavatrack for up to 90 days after termination, after which they may be permanently deleted.</p>
+
+    <h2>7. Referral Program</h2>
+    <p>When you refer another contractor who becomes a paying subscriber, both you and the referred contractor will receive one free month of service. Referral credits are applied to the next billing cycle and have no cash value.</p>
+
+    <h2>8. Intellectual Property</h2>
+    <p>All software, AI models, workflows, templates, and content comprising the Tavatrack platform are the exclusive property of Tavatrack LLC. Your use of the Service does not grant you any ownership rights in the platform. Call transcripts and lead data generated from your callers remain your business data, subject to our Privacy Policy.</p>
+
+    <h2>9. Disclaimer of Warranties</h2>
+    <p class="caps">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TAVATRACK DOES NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR THAT ALL CALLS WILL BE CAPTURED SUCCESSFULLY. AI-GENERATED CALL SUMMARIES AND SCORES ARE PROVIDED FOR CONVENIENCE AND MAY CONTAIN ERRORS. YOU ARE SOLELY RESPONSIBLE FOR VERIFYING LEAD INFORMATION BEFORE TAKING ACTION.</p>
+
+    <h2>10. Limitation of Liability</h2>
+    <p class="caps">TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, TAVATRACK'S TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE AMOUNT PAID BY YOU TO TAVATRACK IN THE THREE (3) MONTHS PRECEDING THE CLAIM. IN NO EVENT SHALL TAVATRACK BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS OR MISSED BUSINESS OPPORTUNITIES, EVEN IF TAVATRACK HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+    <h2>11. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Tavatrack LLC and its officers, employees, and agents from any claims, damages, or expenses (including reasonable attorneys' fees) arising from your use of the Service, your violation of these Terms, or any claims by your customers related to calls handled by the AI receptionist.</p>
+
+    <h2>12. Governing Law and Disputes</h2>
+    <p>These Terms are governed by the laws of the State of Wyoming, without regard to its conflict of law provisions. Any dispute arising out of or relating to these Terms shall be resolved by binding arbitration in Wyoming, except that either party may seek injunctive or other equitable relief in any court of competent jurisdiction.</p>
+
+    <h2>13. Changes to These Terms</h2>
+    <p>Tavatrack may update these Terms from time to time. When we do, we will revise the "Last Updated" date and notify active subscribers by email at least 14 days before changes take effect. Your continued use of the Service after the effective date constitutes acceptance of the revised Terms.</p>
+
+    <h2>14. Entire Agreement</h2>
+    <p>These Terms, together with our <a href="/privacy.html">Privacy Policy</a>, constitute the entire agreement between you and Tavatrack regarding the Service and supersede any prior agreements or understandings. If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+    <h2>15. Contact Information</h2>
+    <p>For questions about these Terms, billing, cancellations, or support:</p>
+    <div class="contact-block">
+      <p><strong>Tavatrack LLC</strong></p>
+      <p>Email: <a href="mailto:support@tavatrack.com">support@tavatrack.com</a></p>
+      <p>Website: <a href="https://tavatrack.com">tavatrack.com</a></p>
+      <p>Mailing Address: Tavatrack LLC, Wyoming, United States</p>
+      <p style="margin-top:12px; color: var(--text-muted); font-size: 0.88rem;">For SMS support, reply HELP to any Tavatrack message.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 TavaTrack LLC. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <span class="footer-sep">·</span>
+        <a href="/terms.html">Terms of Service</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:support@tavatrack.com">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — TavaTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B1829;
+      --navy-mid:   #122035;
+      --navy-light: #1A2E47;
+      --accent:     #2E7BFF;
+      --text:       #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-soft:  #CBD5E1;
+      --border:     rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 24, 41, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    /* CONTENT */
+    .doc-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .doc-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .doc-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .doc-meta {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-intro {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 48px 0 8px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 8px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 12px 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .contact-block {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 12px;
+    }
+
+    .contact-block p { margin-bottom: 4px; }
+    .contact-block p:last-child { margin-bottom: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+    .footer-sep { color: var(--border); }
+
+    @media (max-width: 600px) {
+      .doc-wrap { padding: 48px 20px 72px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">Tava<span>Track</span></a>
+    </div>
+  </nav>
+
+  <div class="doc-wrap">
+    <span class="doc-label">Legal</span>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-meta">Effective Date: May 2, 2026 &nbsp;|&nbsp; Last Updated: May 2, 2026</p>
+
+    <p class="doc-intro">Tavatrack LLC ("Tavatrack," "we," "us," or "our") is a Wyoming limited liability company operating the AI receptionist platform available at tavatrack.com (the "Service"). This Privacy Policy describes how we collect, use, disclose, and protect information when you use our Service, visit our website, or communicate with us.</p>
+    <p class="doc-intro">By using Tavatrack, you agree to the practices described in this Privacy Policy. If you do not agree, please discontinue use of the Service.</p>
+
+    <h2>1. Information We Collect</h2>
+
+    <h3>1.1 Contractor Account Information</h3>
+    <p>When you sign up for Tavatrack, we collect:</p>
+    <ul>
+      <li>Business name, trade type (HVAC, Plumbing, Electrical), and service area</li>
+      <li>Owner name, email address, and mobile phone number</li>
+      <li>Business hours, services offered, and emergency contact information</li>
+      <li>Subscription plan and billing information (processed via Stripe)</li>
+      <li>Onboarding intake form responses used to configure your AI receptionist</li>
+    </ul>
+
+    <h3>1.2 Caller Data Captured on Your Behalf</h3>
+    <p>When your AI receptionist answers a call on your behalf, we collect information about the callers who contact your business, including:</p>
+    <ul>
+      <li>Caller name and phone number</li>
+      <li>Property address or service location</li>
+      <li>Job type and urgency description</li>
+      <li>Full call transcript and AI-generated call summary</li>
+      <li>AI-scored lead quality rating</li>
+    </ul>
+    <p>This information is collected to provide the core function of the Service: capturing leads and delivering them to you via SMS and dashboard.</p>
+
+    <h3>1.3 Automatically Collected Data</h3>
+    <p>We automatically collect certain technical data when you interact with our platform:</p>
+    <ul>
+      <li>IP address and browser/device type</li>
+      <li>Pages visited and time spent on the platform</li>
+      <li>SMS delivery logs and notification records</li>
+      <li>Workflow execution logs used for troubleshooting</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Provide, operate, and maintain the Tavatrack Service</li>
+      <li>Deliver SMS lead notifications and appointment alerts to contractors</li>
+      <li>Configure and operate your personalized AI receptionist</li>
+      <li>Process payments and manage your subscription</li>
+      <li>Provide customer support and respond to inquiries</li>
+      <li>Monitor and improve AI accuracy and call quality</li>
+      <li>Comply with legal obligations and prevent fraud</li>
+    </ul>
+    <p>We do not sell your personal information or your callers' information to third parties. We do not use your data for advertising purposes.</p>
+
+    <h2>3. SMS Messaging</h2>
+
+    <h3>3.1 SMS Notifications to Contractors</h3>
+    <p>As part of the Service, Tavatrack sends automated SMS messages to contractors to deliver lead notifications and appointment alerts. By signing up for Tavatrack and providing your mobile phone number, you consent to receive these transactional SMS messages.</p>
+
+    <h3>3.2 Message Frequency</h3>
+    <p>Message frequency varies based on your call volume. You will receive one SMS notification per captured lead or appointment. During busy periods, you may receive multiple messages per day.</p>
+
+    <h3>3.3 Message and Data Rates</h3>
+    <p>Standard message and data rates may apply depending on your mobile carrier and plan.</p>
+
+    <h3>3.4 Opt-Out</h3>
+    <p>You may opt out of SMS notifications at any time by replying STOP to any Tavatrack SMS message. After opting out, you will no longer receive SMS lead notifications. Note that opting out of SMS does not cancel your Tavatrack subscription.</p>
+
+    <h3>3.5 Help</h3>
+    <p>For assistance with SMS messages, reply HELP to any Tavatrack message or contact us at <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>.</p>
+
+    <h2>4. How We Share Your Information</h2>
+    <p>We share your information only with the following service providers, solely to operate and deliver the Service:</p>
+    <ul>
+      <li>Retell AI — voice AI call processing and transcript generation</li>
+      <li>Twilio Inc. — phone number provisioning and SMS delivery</li>
+      <li>n8n GmbH — workflow automation and webhook processing</li>
+      <li>Supabase Inc. — secure cloud database storage</li>
+      <li>Stripe Inc. — payment processing and subscription management</li>
+      <li>Anthropic PBC — AI-powered data extraction (caller name, address, call score)</li>
+    </ul>
+    <p>Each service provider is contractually obligated to use your information only to perform services on our behalf and is prohibited from using it for their own purposes.</p>
+    <p>We may also disclose information if required by law, court order, or to protect the rights, property, or safety of Tavatrack, our customers, or others.</p>
+
+    <h2>5. Caller Privacy</h2>
+    <p>Tavatrack processes personal information about callers (your customers) on your behalf. You are responsible for ensuring that your use of our Service complies with applicable laws regarding the collection and processing of your customers' information. Callers whose information is captured by your AI receptionist may contact you directly to exercise their data rights.</p>
+
+    <h2>6. Data Security</h2>
+    <p>We implement commercially reasonable technical and organizational measures to protect your information, including:</p>
+    <ul>
+      <li>Encrypted data transmission (TLS/HTTPS)</li>
+      <li>Database row-level security and service role key protection</li>
+      <li>Restricted access to production credentials</li>
+      <li>Regular review of workflow and integration security</li>
+    </ul>
+    <p>No method of transmission over the internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+
+    <h2>7. Data Retention</h2>
+    <p>We retain your account information and call records for as long as your subscription is active and for a reasonable period thereafter to comply with legal obligations and resolve disputes. If you cancel your subscription, you may request deletion of your data by contacting us at <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Correct inaccurate or incomplete information</li>
+      <li>Request deletion of your personal information</li>
+      <li>Opt out of SMS communications (reply STOP to any message)</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:support@tavatrack.com">support@tavatrack.com</a>. We will respond within 30 days.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>The Tavatrack Service is intended for business use by adults. We do not knowingly collect personal information from individuals under the age of 18. If we become aware that we have collected information from a minor, we will delete it promptly.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last Updated" date at the top of this document and notify active subscribers by email. Your continued use of the Service after changes are posted constitutes acceptance of the updated policy.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
+    <div class="contact-block">
+      <p><strong>Tavatrack LLC</strong></p>
+      <p>Email: <a href="mailto:support@tavatrack.com">support@tavatrack.com</a></p>
+      <p>Website: <a href="https://tavatrack.com">tavatrack.com</a></p>
+      <p>Mailing Address: Tavatrack LLC, Wyoming, United States</p>
+      <p style="margin-top:12px; color: var(--text-muted); font-size: 0.88rem;">For SMS-specific inquiries, reply HELP to any Tavatrack message and we will respond within one business day.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 TavaTrack LLC. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <span class="footer-sep">·</span>
+        <a href="/terms.html">Terms of Service</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:support@tavatrack.com">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
