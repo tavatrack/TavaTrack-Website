@@ -1362,10 +1362,7 @@
       <!-- Form -->
       <div id="modalForm">
         <div class="modal-body">
-        <form name="contact" netlify netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="form-name" value="contact" />
-          <p style="display:none"><input name="bot-field" /></p>
-
+        <form name="contact" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-field">
               <label for="firstName">First Name</label>
@@ -1550,17 +1547,37 @@
     function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
-      const data = new FormData(form);
+      const fd = new FormData(form);
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
 
-      fetch('/', { method: 'POST', body: data })
-        .then(() => {
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const data = {
+        firstName: fd.get('first-name'),
+        lastName:  fd.get('last-name'),
+        email:     fd.get('email'),
+        phone:     fd.get('phone'),
+        plan:      fd.get('plan'),
+        trade:     fd.get('trade'),
+        message:   fd.get('message')
+      };
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Server error');
           document.getElementById('modalForm').style.display    = 'none';
           document.getElementById('modalSuccess').style.display = 'block';
         })
         .catch(() => {
-          // fallback: show success anyway (form still submits via Netlify)
-          document.getElementById('modalForm').style.display    = 'none';
-          document.getElementById('modalSuccess').style.display = 'block';
+          alert('Sorry, something went wrong. Please email us directly at tavatrack@gmail.com');
+          btn.disabled = false;
+          btn.textContent = originalText;
         });
     }
   </script>
