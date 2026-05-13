@@ -895,7 +895,7 @@
       margin-bottom: 6px;
     }
 
-    .form-field input,
+    .form-field input:not([type="checkbox"]),
     .form-field select,
     .form-field textarea {
       width: 100%;
@@ -1414,6 +1414,13 @@
           <div class="form-field">
             <label for="message">Anything else we should know? <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
             <textarea id="message" name="message" placeholder="How many calls do you miss per week? Any specific features you need?"></textarea>
+          </div>
+
+          <div class="form-field" style="margin-top: 4px;">
+            <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; text-transform:none; letter-spacing:0; font-size:0.78rem; font-weight:400; line-height:1.5; color:var(--text-muted, #6b7280);">
+              <input type="checkbox" id="smsOptIn" name="sms-opt-in" required style="margin-top:3px; flex-shrink:0; width:16px; height:16px; cursor:pointer; accent-color: var(--accent, #2563eb);" />
+              <span>By checking this box I agree to receive automated SMS messages from Tavatrack about my account, leads, and service updates. Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to opt out at any time. View our <a href="/privacy.html" target="_blank" style="color:inherit; text-decoration:underline;">Privacy Policy</a>.</span>
+            </label>
           </div>
 
           <button type="submit" class="btn btn-primary form-submit">Send Message</button>
